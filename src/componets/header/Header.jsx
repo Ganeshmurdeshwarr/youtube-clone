@@ -1,0 +1,55 @@
+import React, { useState } from "react";
+import youtube_logo from "../../assets/youtube_icon.png";
+import profile_pic from "../../assets/profile_pic.jpg";
+
+import { FaBars, FaMicrophone } from "react-icons/fa";
+import { AiOutlinePlus, AiOutlineSearch } from "react-icons/ai";
+import { MdNotifications, MdApps } from "react-icons/md";
+
+const Header = ({ setOpenSideBar }) => {
+  return (
+    <header className="fixed top-0 bg-[#0f0f0f] z-20  w-full flex justify-between px-3 md:px-6 py-3 items-center  ">
+      <div className=" flex gap-x-5 items-center mr-20 md:mr-0 ">
+        <FaBars
+          onClick={() => setOpenSideBar((prev) => !prev)}
+          className="w-6 h-6   md:w-8 md:h-8 cursor-pointer opacity-80 transition"
+        />
+        <img
+          className="w-10 h-7 md:w-10 md:h-8 rounded-[10px] md:rounded-[12px]"
+          src={youtube_logo}
+          alt="youtube logo"
+        />
+      </div>
+
+      <form className=" flex justify-between items-center md:w-[40%] lg:w-[50%] outline-0 md:border-2 border-[#2e2e2e] rounded-4xl  md:bg-[#121417] ">
+        <input
+          type="text  "
+          placeholder="Search"
+          className="hidden  md:block  w-full px-2 py-3 rounded-l-4xl pl-6 border-0 outline-0 "
+        />
+        <button
+          type="submit "
+          className="md:bg-[#2e2e2e] md:px-6 md:py-3 rounded-r-4xl ml-20 "
+        >
+          <AiOutlineSearch className="h-6 w-fit md:rounded-r-4xl   " />
+        </button>
+        <FaMicrophone className="md:hidden ml-2" />
+      </form>
+
+      <div className="flex items-center gap-x-5">
+        <div className="hidden md:flex items-center gap-x-2 text-md font-bold md:text-xl  back-color px-3 py-2 lg:px-4  rounded-4xl  ">
+          <AiOutlinePlus className=" w-6 h-6  lg:w-8 lg:h-8" />
+          Create
+        </div>
+        <MdNotifications className="hidden md:block w-8 h-8" />
+        <img
+          className="w-8 h-8 md:w-10 md:h-10 rounded-4xl cursor-pointer hover:opacity-90 transition"
+          src={profile_pic}
+          alt=""
+        />
+      </div>
+    </header>
+  );
+};
+
+export default Header;

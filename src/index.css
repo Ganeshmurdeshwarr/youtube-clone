@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+ --text-color :#b1bdb4;
+
+ --black-primary:#0f0f0f ;
+ --black-secondery:#2e2e2e ;
+ --border-color:#2e2e2e;
+
+}
+*{
+ box-sizing: border-box;
+}
+
+
+body {
+ background: var(--black-primary);
+ background-attachment: fixed;
+ color: var(--text-color);
+ font-family: "Roboto" , sans-serif;
+ letter-spacing: 0.1;
+ 
+
+}
+
+.bord-color{
+    border:1px solid var(--border-color);
+}
+
+.back-color{
+    background-color:var(--border-color);
+    
+}
+
+nav li{
+    @apply flex flex-row gap-x-4 p-2 md:ml-2 items-center font-semibold brightness-150 hover:bg-[#2e2e2e]  rounded-2xl 
+}
+
+.sidebar ul li span{
+@apply md:hidden
+}
+.sidebar.open ul li span{
+@apply md:block
+}
+
+
