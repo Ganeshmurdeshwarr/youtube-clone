@@ -12,7 +12,7 @@ const Home = ({openSidBar}) => {
         <Categories/>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-20 mx-2  gap-y-4 md:gap-x-2  lg:gap-x-3 scroll-smooth '>
           {  [...new Array(20)].map((item, idx)=>{
-            return  <Link to={'player'}> <Video key={idx}/></Link>
+            return  <Link key={idx} to={'player'}> <Video /></Link>
           })}
         </div>
       

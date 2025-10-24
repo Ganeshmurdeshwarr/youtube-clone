@@ -7,8 +7,19 @@ import { FaDownLong } from "react-icons/fa6";
 import { IoMdLogOut } from "react-icons/io";
 import { MdOutlinePlaylistPlay, MdOutlineSubscriptions } from "react-icons/md";
 import { SiYoutubemusic, SiYoutubeshorts } from "react-icons/si";
+import { useDispatch } from "react-redux";
+import { logOutUser } from "../../Redux/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({openSidBar}) => {
+
+ const dispatch = useDispatch();
+ const navigate = useNavigate()
+
+  const handleLogOut=()=>{
+    dispatch(logOutUser())
+    navigate('/login')
+  }
 
 
 
@@ -70,7 +81,7 @@ const Sidebar = ({openSidBar}) => {
       <hr />
 
 <ul className="mt-5">
-  <li><IoMdLogOut   className="w-6 h-6"/>
+  <li onClick={handleLogOut}><IoMdLogOut   className="w-6 h-6"/>
   <span>Logout</span></li>
 </ul>
      

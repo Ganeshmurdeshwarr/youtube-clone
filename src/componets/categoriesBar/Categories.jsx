@@ -1,5 +1,4 @@
 import React from "react";
-import { DiMysql } from "react-icons/di";
 
 const Categories = () => {
   const catogories = ["react js", "angulr", "node",'html', 'css', 'redux', 'python', 'java', 'DiMysql', 'object'];
