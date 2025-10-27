@@ -21,8 +21,6 @@ const Sidebar = ({openSidBar}) => {
     navigate('/login')
   }
 
-
-
   return (
     <nav className={`sidebar  h-screen mt-14 md:mt-18 py-4 px-2 mr-8  z-30 bg-[#0f0f0f] transition-all duration-300 fixed  ${ openSidBar ? 'block ':'hidden md:block '}
     ${ openSidBar ? 'open':''}`}>

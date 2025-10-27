@@ -1,24 +1,22 @@
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut,} from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "../Firebase";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
-
-
+// --- Thunks ---
 export const signUpUser = createAsyncThunk(
   "auth/signupUser",
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      console.log(userCredential);
-      console.log(user);
       return {
-        accessToken: user.accessToken,
         uid: user.uid,
         email: user.email,
         displayName: user.displayName,
@@ -31,24 +29,15 @@ export const signUpUser = createAsyncThunk(
 );
 
 export const signInUser = createAsyncThunk(
-  "auth/signIn",
-  async ({ email, password }) => {
+  "auth/signInUser",
+  async ({ email, password }, { rejectWithValue }) => {
     try {
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      const user = userCredential.user; // extract user
-
-      console.log(userCredential);
-      console.log(user);
-
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
       return {
-        accessToken: user.accessToken,
         uid: user.uid,
         email: user.email,
-        displayName:( user.displayName ||user.email),
+        displayName: user.displayName,
         photoURL: user.photoURL,
       };
     } catch (error) {
@@ -59,15 +48,12 @@ export const signInUser = createAsyncThunk(
 
 export const googleLogin = createAsyncThunk(
   "auth/googleLogin",
-  async (__, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const Provider = new GoogleAuthProvider();
-      const result = await signInWithPopup(auth, Provider);
-      const user = result.user; // extract user
-      console.log(result);
-      console.log(user);
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
       return {
-        accessToken: user.accessToken,
         uid: user.uid,
         email: user.email,
         displayName: user.displayName,
@@ -84,14 +70,17 @@ export const logOutUser = createAsyncThunk("auth/logOutUser", async () => {
   return null;
 });
 
+// --- Slice ---
 const authSlice = createSlice({
-  name: auth,
+  name: "auth",
   initialState: {
-    user: null,
+    user: [],
+    token: null,   // YouTube OAuth token
     loading: false,
     error: null,
   },
   reducers: {
+    
     setUser:(state ,action)=>{
         state.user =action.payload;
     },
@@ -101,38 +90,19 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(signUpUser.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(signUpUser.fulfilled, (state, action) => {
-        state.loading = false;
-        state.user = action.payload;
-      })
-      .addCase(signUpUser.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      })
+      .addCase(signUpUser.pending, (state) => { state.loading = true; })
+      .addCase(signUpUser.fulfilled, (state, action) => { state.loading = false; state.user = action.payload; })
+      .addCase(signUpUser.rejected, (state, action) => { state.loading = false; state.error = action.payload; })
 
-      .addCase(signInUser.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(signInUser.fulfilled, (state, action) => {
-        state.loading = false;
-        state.user = action.payload;
-      })
-      .addCase(signInUser.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      })
+      .addCase(signInUser.pending, (state) => { state.loading = true; })
+      .addCase(signInUser.fulfilled, (state, action) => { state.loading = false; state.user = action.payload; })
+      .addCase(signInUser.rejected, (state, action) => { state.loading = false; state.error = action.payload; })
 
-      .addCase(googleLogin.fulfilled, (state, action) => {
-        state.loading = false;
-        state.user = action.payload;
-      })
+      .addCase(googleLogin.pending, (state) => { state.loading = true; })
+      .addCase(googleLogin.fulfilled, (state, action) => { state.loading = false; state.user = action.payload; })
+      .addCase(googleLogin.rejected, (state, action) => { state.loading = false; state.error = action.payload; })
 
-      .addCase(logOutUser.fulfilled, (state) => {
-        state.user = null;
-      });
+      .addCase(logOutUser.fulfilled, (state) => { state.user = null; state.token = null; });
   },
 });
 

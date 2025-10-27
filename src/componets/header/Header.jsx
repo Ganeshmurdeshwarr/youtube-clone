@@ -8,14 +8,14 @@ import { MdNotifications, MdApps } from "react-icons/md";
 
 const Header = ({ setOpenSideBar }) => {
   return (
-    <header className="fixed top-0 bg-[#0f0f0f] z-20  w-full flex justify-between px-3 md:px-6 py-3 items-center  ">
+    <header className="fixed top-0 bg-[#0f0f0f] opacity-98 z-20  w-full flex justify-between px-3 md:px-6 py-3 items-center  ">
       <div className=" flex gap-x-5 items-center mr-20 md:mr-0 ">
         <FaBars
           onClick={() => setOpenSideBar((prev) => !prev)}
           className="w-6 h-6   md:w-8 md:h-8 cursor-pointer opacity-80 transition"
         />
         <img
-          className="w-10 h-7 md:w-10 md:h-8 rounded-[10px] md:rounded-[12px]"
+          className="w-10 h-7 md:w-10 md:h-8 rounded-[10px] md:rounded-xl"
           src={youtube_logo}
           alt="youtube logo"
         />
