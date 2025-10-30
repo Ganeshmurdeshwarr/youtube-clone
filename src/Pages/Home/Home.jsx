@@ -9,7 +9,6 @@ const Home = ({ openSidBar }) => {
   const dispatch = useDispatch();
   const { videos, loading, error } = useSelector((state) => state.homeVideo);
 
-  console.log(videos);
   useEffect(() => {
     dispatch(addVideoToHome());
   }, []);
@@ -30,7 +29,7 @@ const Home = ({ openSidBar }) => {
       <Categories />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 mt-20 mx-2 gap-y-4 md:gap-x-2 lg:gap-x-3  VideoScrollBar">
         {videos.map((item, idx) => (
-          <Link key={idx} to={"/player"}>
+          <Link key={idx} to={`/player/${item.id}`}>
             <Video item={item} />
           </Link>
         ))}

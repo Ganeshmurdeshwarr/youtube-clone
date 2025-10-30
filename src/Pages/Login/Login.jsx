@@ -22,50 +22,51 @@ const Login = () => {
   }, [user, navigate]);
 
   return (
-    <div className="w-full h-full flex justify-center items-center">
-      <div className="bg-gray-800 w-[60%] lg:w-[45%] h-auto p-6 flex flex-col items-center rounded-2xl">
-        <img
-          src={youtube_icon}
-          alt="YouTube"
-          className="w-[200px] h-[120px] rounded-xl mb-4"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="mb-2 px-3 py-2 w-full rounded-md text-white border"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="mb-2 px-3 py-2 w-full rounded-md text-white border"
-        />
-        <button
-          onClick={handleLogin}
-          className="mb-2 w-full py-2 rounded-md bg-white"
-        >
-          Login
-        </button>
-        <button
-          onClick={handleSignup}
-          className="mb-2 w-full py-2 rounded-md bg-white"
-        >
-          Sign Up
-        </button>
-        <button
-          onClick={handleGoogle}
-          className="mb-4 w-fit py-2 px-3 rounded-md bg-white"
-        >
-          Login with Google
-        </button>
+    <div className="w-full min-h-screen flex justify-center items-center bg-gradient-to-b from-black via-[#111] to-[#1a1a1a] px-4">
+  <div className="bg-[#181818] w-full sm:w-[80%] md:w-[60%] lg:w-[40%] xl:w-[30%] p-8 rounded-2xl shadow-2xl flex flex-col items-center transition-all duration-300">
+    <img
+      src={youtube_icon}
+      alt="YouTube"
+      className="w-[160px] h-[100px] rounded-xl mb-6"
+    />
+    <input
+      type="email"
+      placeholder="Email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      className="mb-3 px-4 py-2 w-full rounded-md text-white bg-[#2a2a2a] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className="mb-4 px-4 py-2 w-full rounded-md text-white bg-[#2a2a2a] border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+    />
+    <button
+      onClick={handleLogin}
+      className="mb-3 w-full py-2 rounded-md bg-red-600 text-white font-semibold hover:bg-red-700 transition-colors"
+    >
+      Login
+    </button>
+    <button
+      onClick={handleSignup}
+      className="mb-3 w-full py-2 rounded-md bg-white text-black font-semibold hover:bg-gray-200 transition-colors"
+    >
+      Sign Up
+    </button>
+    <button
+      onClick={handleGoogle}
+      className="mb-4 w-fit py-2 px-4 rounded-md bg-[#4285F4] text-white font-semibold hover:bg-[#357ae8] transition-colors"
+    >
+      Login with Google
+    </button>
 
-        {loading && <p className="text-white mt-2">Loading...</p>}
-        {error && <p className="text-red-500 mt-2">{error}</p>}
-      </div>
-    </div>
+    {loading && <p className="text-white mt-2 animate-pulse">Loading...</p>}
+    {error && <p className="text-red-500 mt-2 text-sm">{error}</p>}
+  </div>
+</div>
+
   );
 };
 

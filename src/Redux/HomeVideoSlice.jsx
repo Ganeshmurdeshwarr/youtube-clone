@@ -25,7 +25,7 @@ export const addVideoToHome = createAsyncThunk(
       const channelRes = await fetch(
         `https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics,contentDetails&id=${channelIds.join(",")}&key=${MY_KEY}`);
 
-      const channelData = await channelRes.json();
+      const channelData = await channelRes.json() || [];
 
       const mergedVideos = videoData.items.map((item) => {
         const channel = channelData.items.find(
