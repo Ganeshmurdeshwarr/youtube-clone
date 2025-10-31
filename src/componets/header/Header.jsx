@@ -5,8 +5,19 @@ import profile_pic from "../../assets/profile_pic.jpg";
 import { FaBars, FaMicrophone } from "react-icons/fa";
 import { AiOutlinePlus, AiOutlineSearch } from "react-icons/ai";
 import { MdNotifications, MdApps } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ setOpenSideBar }) => {
+
+   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+  e.preventDefault(); // 🧠 Prevents page reload
+  if (!query.trim()) return;
+  navigate(`/search?q=${encodeURIComponent(query)}`);
+};
+
   return (
     <header className="fixed top-0 bg-[#0f0f0f] opacity-98 z-20  w-full flex justify-between px-3 md:px-6 py-3 items-center  ">
       <div className=" flex gap-x-5 items-center mr-20 md:mr-0 ">
@@ -21,11 +32,14 @@ const Header = ({ setOpenSideBar }) => {
         />
       </div>
 
-      <form className=" flex justify-between items-center md:w-[40%] lg:w-[50%] outline-0 md:border-2 border-[#2e2e2e] rounded-4xl  md:bg-[#121417] ">
+      <form onSubmit={handleSearch} className=" flex justify-between items-center md:w-[40%] lg:w-[50%] outline-0 md:border-2 border-[#2e2e2e] rounded-4xl  md:bg-[#121417] ">
         <input
           type="text  "
           placeholder="Search"
           className="hidden  md:block  w-full px-2 py-3 rounded-l-4xl pl-6 border-0 outline-0 "
+           value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      
         />
         <button
           type="submit "

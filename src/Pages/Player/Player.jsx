@@ -24,7 +24,8 @@ import { FaCut } from "react-icons/fa";
 import { CiBookmark, CiFlag1 } from "react-icons/ci";
 import Video from "../../componets/video/Video";
 
-const MY_KEY = "AIzaSyCrSuiBIPB0B7xFSkvQPuGPbLNHQke8HR4";
+const MY_KEY = import.meta.env.VITE_MY_API_KEY;
+
 
 const Player = ({ openSidBar }) => {
   const { videoId } = useParams();

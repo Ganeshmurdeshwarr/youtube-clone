@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const MY_KEY = "AIzaSyCrSuiBIPB0B7xFSkvQPuGPbLNHQke8HR4";
+const MY_KEY = import.meta.env.VITE_MY_API_KEY;
 const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics,contentDetails&chart=mostPopular&maxResults=20&regionCode=IN&key=${MY_KEY}`;
 
 export const addVideoToHome = createAsyncThunk(

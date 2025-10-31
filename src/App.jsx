@@ -81,7 +81,7 @@ const App = () => {
       <Route path="yourvideos" element={<YourVideos/>} />
       <Route path="yourCourse" element={<YourCourse/>} />
       <Route path="downloads" element={<Downloads/>} />
-      <Route path="/search" element={<SearchPage />} />
+      <Route path="search" element={<SearchPage />} />
     </Route>
   ) : (
     <Route path="*" element={<Navigate to="/login" replace />} />

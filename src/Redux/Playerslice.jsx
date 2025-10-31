@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const MY_KEY = `AIzaSyCaklah1TR8dIxCKMFLdxBBp_u_J66WK9Y`
+const MY_KEY = import.meta.env.VITE_MY_API_KEY ;
 
 export const PlayVideo = createAsyncThunk(
   "player/PlayVideo",

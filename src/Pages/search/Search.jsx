@@ -1,44 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
-const API_KEY = "YOUR_YOUTUBE_API_KEY";
+const API_KEY = import.meta.env.VITE_MY_API_KEY;
 
 const SearchPage = () => {
-  const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
-  async function handleSearch() {
+  // Extract ?q= from URL
+  const query = new URLSearchParams(location.search).get("q");
+
+  useEffect(() => {
     if (!query) return;
 
-    try {
-      const res = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${query}&type=video&key=${API_KEY}`
-      );
-      const data = await res.json();
-      setResults(data.items || []);
-    } catch (error) {
-      console.error("Error fetching videos:", error);
+    async function fetchVideos() {
+      try {
+        setLoading(true);
+        const res = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${query}&type=video&key=${API_KEY}`
+        );
+        const data = await res.json();
+        setResults(data.items || []);
+      } catch (error) {
+        console.error("Error fetching videos:", error);
+      } finally {
+        setLoading(false);
+      }
     }
-  }
+
+    fetchVideos();
+  }, [query]);
+
+  if (loading) return <p className="text-center text-gray-400 mt-10">Loading...</p>;
+  console.log(results)
 
   return (
-    <div className="bg-[#0f0f0f] text-white min-h-screen p-6">
-      <div className="flex gap-2 mb-6">
-        <input
-          type="text"
-          placeholder="Search videos..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="flex-1 p-2 rounded-lg bg-[#1f1f1f] outline-none"
-        />
-        <button
-          onClick={handleSearch}
-          className="bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition"
-        >
-          Search
-        </button>
-      </div>
+    <div className="bg-[#0f0f0f] text-white min-h-screen p-6 mt-20 md:ml-20">
+      <h2 className="text-2xl font-semibold mb-6">
+        Search Results for <span className="text-red-500">"{query}"</span>
+      </h2>
 
-      {/* Results */}
       <div className="flex flex-col gap-6">
         {results.map((video) => (
           <div

@@ -22,12 +22,12 @@ const Login = () => {
   }, [user, navigate]);
 
   return (
-    <div className="w-full min-h-screen flex justify-center items-center bg-gradient-to-b from-black via-[#111] to-[#1a1a1a] px-4">
+    <div className="w-full min-h-screen flex justify-center items-center bg-linear-to-b from-black via-[#111] to-[#1a1a1a] px-4">
   <div className="bg-[#181818] w-full sm:w-[80%] md:w-[60%] lg:w-[40%] xl:w-[30%] p-8 rounded-2xl shadow-2xl flex flex-col items-center transition-all duration-300">
     <img
       src={youtube_icon}
       alt="YouTube"
-      className="w-[160px] h-[100px] rounded-xl mb-6"
+      className="w-40 h-[100px] rounded-xl mb-6"
     />
     <input
       type="email"
