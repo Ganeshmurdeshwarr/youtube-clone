@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const API_KEY = import.meta.env.VITE_MY_API_KEY;
 
@@ -43,7 +43,7 @@ const SearchPage = () => {
 
       <div className="flex flex-col gap-6">
         {results.map((video) => (
-          <div
+          <Link to={`/player/${video.id.videoId}`}
             key={video.id.videoId}
             className="flex gap-4 hover:bg-[#1f1f1f] p-3 rounded-xl transition-all"
           >
@@ -59,7 +59,7 @@ const SearchPage = () => {
                 {video.snippet.description.slice(0, 100)}...
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

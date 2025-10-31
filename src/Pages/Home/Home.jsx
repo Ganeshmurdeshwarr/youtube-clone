@@ -22,7 +22,7 @@ const Home = ({ openSidBar }) => {
 
   return (
     <section
-      className={`mt-10 md:mt-16 pt-2 md:ml-14 ${
+      className={`mt-14 md:mt-16 pt-2 md:ml-14 ${
         openSidBar ? "lg:ml-48" : "lg:ml-20"
       } `}
     >
