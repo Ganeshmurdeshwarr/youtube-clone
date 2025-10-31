@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./Firebase";
 import { clearUser, setUser } from "./Redux/authSlice";
+import SearchPage from "./Pages/search/Search";
 
 const App = () => {
   const [openSidBar, setOpenSideBar] = useState(false);
@@ -80,6 +81,7 @@ const App = () => {
       <Route path="yourvideos" element={<YourVideos/>} />
       <Route path="yourCourse" element={<YourCourse/>} />
       <Route path="downloads" element={<Downloads/>} />
+      <Route path="/search" element={<SearchPage />} />
     </Route>
   ) : (
     <Route path="*" element={<Navigate to="/login" replace />} />
