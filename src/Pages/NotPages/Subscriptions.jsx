@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import mrvideo from '../../assets/sub/mrvideo.png'
 import mr from '../../assets/sub/mr.webp'
 import carry from '../../assets/sub/carry.jpg'
@@ -79,10 +79,10 @@ const Subscriptions = () => {
     <div className="  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-3">
 
       {videos.map((video) => (
-        <div
+        <Link 
           key={video.id.videoId}
           className="rounded-2xl bg-[#181818] overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer"
-          onClick={() => navigate(`/player/${video.id.videoId}`)}
+          
         >
           {/* Video Thumbnail */}
           <img
@@ -111,7 +111,7 @@ const Subscriptions = () => {
               </p>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
       </div>

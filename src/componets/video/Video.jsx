@@ -15,7 +15,7 @@ const Video = ({ item }) => {
         src={item.snippet.thumbnails.high.url}
         alt=""
       />
-      <h2 className="absolute right-3 top-[53%] md:top-[48%] bg-black px-1 rounded-[5px]">
+      <h2 className="absolute right-3 top-[48%] md:top-[48%] bg-black px-1 rounded-[5px]">
       {formatDuration(item.contentDetails.duration)}
       </h2>
       <div className=" mt-4 flex gap-x-4 ">

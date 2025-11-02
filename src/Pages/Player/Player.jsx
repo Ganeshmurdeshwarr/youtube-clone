@@ -45,7 +45,8 @@ const Player = ({ openSidBar }) => {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   function handlesubBtn() {
-    setIsSubscribed((prev = !prev));
+    console.log('hi')
+    setIsSubscribed(prev => !prev);
   }
 
   function handleMoreBtn() {
@@ -143,7 +144,7 @@ const Player = ({ openSidBar }) => {
           ></iframe>
         </div>
 
-        <div className="flex gap-x-2 px-2 mt-62 md:mt-4  overflow-y-auto scroll-auto  ">
+        <div className="flex gap-x-2 px-2 mt-64   md:mt-6  overflow-y-auto scroll-auto  ">
           <h2>{formatViews(video.video.statistics.viewCount)}</h2>
           <h2>{timeAgo(video.video.snippet.publishedAt)}</h2>
           <div className="whitespace-nowrap max-w-[180px]  w-fit overflow-x-hidden flex-1">
@@ -247,11 +248,11 @@ const Player = ({ openSidBar }) => {
                 <IoIosHeart className="w-6 h-6 " />
                 thanks
               </h2>
-              <h2
+              <div
                 onClick={handleMoreBtn}
                 className="flex relative items-center gap-x-2 h-fit rounded-2xl bg-[#2e2e2e] px-2 py-2  "
               >
-                <IoIosMore className="w-6 h-6 rounded-4xl" />
+                <IoIosMore className="w-4 h-4 rounded-2xl" />
 
                 <div
                   className={` ${
@@ -271,7 +272,7 @@ const Player = ({ openSidBar }) => {
                     Report
                   </h2>
                 </div>
-              </h2>
+              </div>
             </div>
           </div>
 
@@ -332,13 +333,11 @@ const Player = ({ openSidBar }) => {
               Hide comments
             </h2>
           </div>
-
-          {/* recomonded videos */}
+          
+        </div>
         </div>
 
-        </div>
-
-<h2 className="lg:hidden mt-8 text-white text-2xl font-bold">Recomonded videos</h2>
+<h2 className="lg:hidden mt-8 text-white text-2xl font-bold">Recommended videos</h2>
         {/* recommended videos */}
         <div className="mt-6 lg:w-[30%] md:mt-6 rounded-2xl md:grid grid-cols-2 gap-x-4 lg:block">
           {recommendedVideos.map((item, id) => {
@@ -349,11 +348,14 @@ const Player = ({ openSidBar }) => {
                   src={item.thumbnail}
                   alt=""
                 />
-                <h2 className="text-xl font-bold ">{item.title}</h2>
+                <h2 className="mt-2 text-xl font-bold ">{item.title}</h2>
+
+                <div className="flex gap-x-8 sm:block">
                 <h2>{item.channel} </h2>
-                <div className="flex items-center gap-x-4">
+                <div className="flex items-center gap-x-2">
                   <h2>{item.views}</h2>
                   <p>{item.timeAgo}</p>
+                </div>
                 </div>
               </div>
             );

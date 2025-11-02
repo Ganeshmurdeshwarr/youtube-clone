@@ -34,11 +34,11 @@ const Header = ({ setOpenSideBar }) => {
         />
       </div>
 
-       <form onSubmit={handleSearch} className="border-2  flex justify-between items-center px-2 py-2 md:px-0 md:py-0 outline-0 md:w-[40%] lg:w-[50%] md:border-2 border-[#2e2e2e] rounded-4xl  md:bg-[#121417]">
+       <form onSubmit={handleSearch} className="border-2  flex justify-between items-center px-2 py-2 md:px-0 md:py-0 outline-0  md:w-[40%] lg:w-[50%] md:border-2 border-[#2e2e2e] rounded-4xl  md:bg-[#121417]">
         <input
           type="text  "
           placeholder="Search"
-          className="border-0 outline-0 md:w-full  md:px-2 md:py-3 md:rounded-l-4xl md:pl-6 md:border-0  "
+          className="border-0 outline-0 w-40 sm:w-full md:w-full  md:px-2 md:py-3 md:rounded-l-4xl md:pl-6 md:border-0"
            value={query}
         onChange={(e) => setQuery(e.target.value)}
       
