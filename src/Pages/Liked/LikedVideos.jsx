@@ -1,10 +1,19 @@
 import React from "react";
-
+import btsdyn from '../../assets/Liked/bts-dynamite.jpg'
+import bts from '../../assets/Liked/bts.jpg'
+import carry from '../../assets/Liked/carryminati.avif'
+import dubai from '../../assets/Liked/dubai.jpg'
+import fullskack from '../../assets/Liked/fullstack.jpg'
+import mrvideo2 from '../../assets/Liked/mrvideo.jpg'
+import produc from '../../assets/Liked/productivity.png'
+import react2 from '../../assets/Liked/react.jpg'
+import carry2 from '../../assets/sub/carry.jpg'
+import javascript from '../../assets/liked/javascript.jpg'
 const LikedVideos = () => {
   const likedVideos = [
     {
       id: 1,
-      thumbnail: "https://images.unsplash.com/photo-1602524817347-d43e3c0c50f8?w=800",
+      thumbnail: mrvideo2,
       title: "MrBeast - Surviving 50 Hours In Antarctica",
       channel: "MrBeast",
       views: "120M views",
@@ -12,7 +21,7 @@ const LikedVideos = () => {
     },
     {
       id: 2,
-      thumbnail: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800",
+      thumbnail:bts,
       title: "BTS - Yet To Come (Official MV)",
       channel: "HYBE LABELS",
       views: "89M views",
@@ -20,7 +29,7 @@ const LikedVideos = () => {
     },
     {
       id: 3,
-      thumbnail: "https://images.unsplash.com/photo-1525186402429-b4ff38bedbec?w=800",
+      thumbnail: fullskack,
       title: "How I Built a Full Stack App in 7 Days",
       channel: "Traversy Media",
       views: "1.2M views",
@@ -28,7 +37,7 @@ const LikedVideos = () => {
     },
     {
       id: 4,
-      thumbnail: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=800",
+      thumbnail: carry,
       title: "CarryMinati - Best Roast Moments Compilation 🔥",
       channel: "CarryMinati",
       views: "9.4M views",
@@ -36,7 +45,7 @@ const LikedVideos = () => {
     },
     {
       id: 5,
-      thumbnail: "https://images.unsplash.com/photo-1603791452906-bb7b3e62f5c1?w=800",
+      thumbnail: react2,
       title: "Top 10 React Projects for 2025",
       channel: "CodeWithHarry",
       views: "720K views",
@@ -44,7 +53,7 @@ const LikedVideos = () => {
     },
     {
       id: 6,
-      thumbnail: "https://images.unsplash.com/photo-1602524817347-d43e3c0c50f8?w=800",
+      thumbnail: dubai,
       title: "24 Hours in Dubai with $1,000,000",
       channel: "MrBeast",
       views: "63M views",
@@ -52,7 +61,7 @@ const LikedVideos = () => {
     },
     {
       id: 7,
-      thumbnail: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800",
+      thumbnail: btsdyn,
       title: "BTS - Dynamite (Live Performance)",
       channel: "HYBE LABELS",
       views: "55M views",
@@ -60,7 +69,7 @@ const LikedVideos = () => {
     },
     {
       id: 8,
-      thumbnail: "https://images.unsplash.com/photo-1525186402429-b4ff38bedbec?w=800",
+      thumbnail: javascript,
       title: "Learn JavaScript in 1 Hour (Full Course)",
       channel: "freeCodeCamp.org",
       views: "3.4M views",
@@ -68,7 +77,7 @@ const LikedVideos = () => {
     },
     {
       id: 9,
-      thumbnail: "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=800",
+      thumbnail: carry2,
       title: "Roasting 2025 Trends - CarryMinati Style",
       channel: "CarryMinati",
       views: "5.1M views",
@@ -76,7 +85,7 @@ const LikedVideos = () => {
     },
     {
       id: 10,
-      thumbnail: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800",
+      thumbnail: produc,
       title: "The Ultimate Productivity Guide for Developers",
       channel: "Ali Abdaal",
       views: "900K views",
