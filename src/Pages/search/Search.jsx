@@ -45,19 +45,17 @@ const SearchPage = () => {
         {results.map((video) => (
           <Link to={`/player/${video.id.videoId}`}
             key={video.id.videoId}
-            className="flex gap-4 hover:bg-[#1f1f1f] p-3 rounded-xl transition-all"
+            className="md:flex gap-4 hover:bg-[#1f1f1f] p-3 rounded-xl transition-all"
           >
             <img
               src={video.snippet.thumbnails.medium.url}
               alt={video.snippet.title}
-              className="w-64 h-40 object-cover rounded-xl"
+              className="w-full h-full md:w-64 md:h-40 object-cover rounded-xl"
             />
             <div>
-              <h2 className="text-xl font-semibold">{video.snippet.title}</h2>
+              <h2 className="text-lg mt-2 font-semibold">{video.snippet.title}</h2>
               <p className="text-gray-400">{video.snippet.channelTitle}</p>
-              <p className="text-gray-500 text-sm mt-1">
-                {video.snippet.description.slice(0, 100)}...
-              </p>
+              
             </div>
           </Link>
         ))}
