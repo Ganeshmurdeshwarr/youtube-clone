@@ -20,7 +20,14 @@ body {
   font-family: "Roboto", sans-serif;
   letter-spacing: 0.1;
   height: 100%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+  overflow: auto;
   
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 .bord-color {
