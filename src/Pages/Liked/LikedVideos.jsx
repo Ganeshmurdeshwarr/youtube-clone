@@ -8,7 +8,7 @@ import mrvideo2 from '../../assets/Liked/mrvideo.jpg'
 import produc from '../../assets/Liked/productivity.png'
 import react2 from '../../assets/Liked/react.jpg'
 import carry2 from '../../assets/sub/carry.jpg'
-import javascript from '../../assets/liked/javascript.jpg'
+import javascript from '../../assets/Liked/javascript.jpg'
 const LikedVideos = () => {
   const likedVideos = [
     {
