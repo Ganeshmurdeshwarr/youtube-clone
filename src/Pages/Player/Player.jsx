@@ -148,7 +148,7 @@ const Player = ({ openSidBar }) => {
           <h2>{formatViews(video.video.statistics.viewCount)}</h2>
           <h2>{timeAgo(video.video.snippet.publishedAt)}</h2>
           <div className="whitespace-nowrap max-w-[180px]  w-fit overflow-x-hidden flex-1">
-            {video.video.snippet.tags.map((item, idx) => {
+            {video.video.snippet.tags?.map((item, idx) => {
               return (
                 <span key={idx} className="ml-2">
                   #{item}
