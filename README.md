@@ -1,16 +1,54 @@
-# React + Vite
+# 🎬 YouTube Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **YouTube-like video streaming application** built using modern web technologies.  
+This project replicates core features of YouTube such as video browsing, search, and playback with a clean UI and responsive design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- 📺 Video listing with thumbnails
+- 🔍 Search functionality
+- ▶️ Video playback page
+- 📱 Fully responsive design
+- ⚡ Fast loading & smooth UI
+- 🧭 Client-side routing
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+- React.js
+- JavaScript (ES6+)
+- HTML5
+- CSS3 / Tailwind CSS
+
+### API & Tools
+- YouTube Data API v3
+- Fetch API
+- React Router
+- Git & GitHub
+
+---
+Learning Outcomes
+
+Working with third-party APIs
+Handling async data fetching
+React component architecture
+Routing and state management
+Responsive UI design
+
+🎯 Future Improvements
+User authentication
+Channel pages
+Comments & likes
+Infinite scrolling
+Dark mode
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome!
+Feel free to fork the repo and submit a PR.
+
+## 📂 Project Structure
+
